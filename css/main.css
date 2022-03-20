@@ -1,0 +1,167 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+@font-face{ /* подключение шрифта*/
+	font-family: 'timer';
+	src: url(../fonts/CursedTimerUlil.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body:root{
+	--secondPositionStart: 0deg;
+	--secondPositionEnd: 0deg;
+	--minutPositionStart: 0deg;
+	--minutPositionEnd: 0deg;
+	--hourPositionStart: 0deg;
+	--hourtPositionEnd: 0deg;
+}
+.swiper{
+    height: 80vh;
+    width: 80vh;
+    border-radius: 100%;
+	position: relative;
+}
+.bg1{
+	background-image: url(../img/bg1.png);
+	background-position: center center;
+	background-size: cover;
+	background-color: white;
+}
+.bg2{
+	background-image: url(../img/bg2.png);
+	background-position: center center;
+	background-size: cover;
+	background-color: white;
+}
+.point{
+	width: 5%;
+	height: 5%;
+	background: rgb(0, 0, 0);
+	border-radius: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 4;
+}
+.second-hand{
+	height: 60%;
+	width: 0.5%;
+	box-shadow: 0 0 0.5vh rgb(233, 0, 0);
+	background: rgb(182, 4, 4);
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	transform: translate(-50%, 20%);
+	z-index: 3;
+	animation: second 60s linear infinite;
+	transform-origin: center 80%; /* точка на которой происходит движение объекта*/
+}
+@keyframes second{
+	0%{
+		transform: translate(-50%, 20%) rotate(var(--secondPositionStart)); /* поворот объект*/
+	}
+	100%{
+		transform:  translate(-50%, 20%) rotate(var(--secondPositionEnd));
+	}
+}
+.minuta-hand{
+	height: 60%;
+	width: 1%;
+	background: rgb(0, 0, 0);
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	transform: translate(-50%, 20%);
+	z-index: 2;
+	animation: minuta 3600s linear infinite;
+	transform-origin: center 80%;
+}
+@keyframes minuta{
+	0%{
+		transform: translate(-50%, 20%) rotate(var(--minutPositionStart)); /* поворот объект*/
+	}
+	100%{
+		transform:  translate(-50%, 20%) rotate(var(--minutPositionEnd));
+	}
+}
+.hour-hand{
+	height: 40%;
+	width: 3%;
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+	background: rgb(231, 133, 255);
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	transform: translate(-50%, 20%);
+	z-index: 1;
+	animation: hour 43200s linear infinite;
+	transform-origin: center 80%;
+}
+@keyframes hour{
+	0%{
+		transform: translate(-50%, 20%) rotate(var(--hourPositionStart)); /* поворот объект*/
+	}
+	100%{
+		transform:  translate(-50%, 20%) rotate(var(--hourPositionEnd));
+	}
+}
+.elektron-time{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 7vh;
+	font-family: 'timer';
+}
+.elektron-time2{
+	font-family: 'Libre Baskerville', serif;
+	font-family: 'PT Serif', serif;
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 7vh;
+}

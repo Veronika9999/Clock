@@ -1,0 +1,9 @@
+@media (max-width: 768px){
+    .swiper{
+        height: 80vw;
+        width: 80vw;
+    }
+    .elektron-time, .elektron-time2{
+        font-size: 7vw;
+    }
+}
